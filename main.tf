@@ -1,3 +1,4 @@
+# TODO: make profile to custom variable
 terraform {
     required_version = ">= 0.12.0"
 
