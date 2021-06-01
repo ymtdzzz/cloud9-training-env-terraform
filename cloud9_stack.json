@@ -1,0 +1,13 @@
+{
+  "Resources": {
+    "${resource_name}${count}": {
+      "Type": "AWS::Cloud9::EnvironmentEC2",
+      "Properties": {
+        "ConnectionType": "CONNECT_SSM",
+        "InstanceType": "t2.micro",
+        "Name": "${name}-${count}",
+        "SubnetId": "${subnet_id}"
+      }
+    }
+  }
+}
