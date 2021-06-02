@@ -4,9 +4,11 @@
       "Type": "AWS::Cloud9::EnvironmentEC2",
       "Properties": {
         "ConnectionType": "CONNECT_SSM",
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.small",
+        "ImageId": "ubuntu-18.04-x86_64",
         "Name": "${name}-${count}",
-        "SubnetId": "${subnet_id}"
+        "SubnetId": "${subnet_id}",
+        "OwnerArn": "${owner_arn}"
       }
     }
   }
