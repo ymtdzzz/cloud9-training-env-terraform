@@ -62,7 +62,6 @@ module "user" {
     name = var.name
 }
 
-
 # Cloud9
 resource "aws_cloudformation_stack" "cloud9" {
     count = var.cloud9_count
@@ -72,10 +71,10 @@ resource "aws_cloudformation_stack" "cloud9" {
     template_body = templatefile(
         "cloud9_stack.json",
         {
-            resource_name = "cloud9"
-            name = var.name
+            resource_name = "2021InternCloud9Env"
+            name = "${var.name}-${count.index}"
             count = count.index
-            subnet_id = module.network.private_subnet_ids[0][0]
+            subnet_id = module.network.public_subnet_ids[0][0]
             owner_arn = var.owner_arn
         }
     )
