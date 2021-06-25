@@ -39,6 +39,10 @@ resource "aws_iam_group_membership" "this" {
     ]
 
     group = aws_iam_group.this.name
+
+    depends_on = [
+        aws_iam_user.this
+    ]
 }
 
 output "encrypted_password" {
